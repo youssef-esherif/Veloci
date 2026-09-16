@@ -31,15 +31,9 @@
 		<param-name>DBPass</param-name>
 		<param-value></param-value>
 	</context-param> -->
-	
-	
 
 	<!-- Database Listener -->
-	<listener>
-		<listener-class>listeners.DBListener</listener-class>
-	</listener>
 	
-
 
 
 </web-app>
