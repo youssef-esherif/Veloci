@@ -23,12 +23,12 @@ import jakarta.servlet.http.HttpSession;
 public class AuthorizationFilter implements Filter {
 
     // Pages reachable without being logged in at all.
-    private static final Set<String> PUBLIC_PATHS = Set.of(
-        "/", "/index.html",
-        "/login.html", "/login",
-        "/signup.html", "/signup",
-        "/unauthorized.html"
-    );
+	private static final Set<String> PUBLIC_PATHS = Set.of(
+		    "/", "/index.html",
+		    "/views/login.html", "/login",
+		    "/views/signup.html", "/signup",
+		    "/views/unauthorized.html"
+		);
 
     // Path prefixes that don't need auth checks at all (static assets).
     private static final Set<String> PUBLIC_PREFIXES = Set.of(
@@ -73,7 +73,7 @@ public class AuthorizationFilter implements Filter {
         // Not logged in at all -> send to login, not the 403 page.
         // (403 is reserved for "you're logged in, but not allowed here".)
         if (!loggedIn) {
-            response.sendRedirect(request.getContextPath() + "/login.html");
+            response.sendRedirect(request.getContextPath() + "/views/login.html");
             return;
         }
 

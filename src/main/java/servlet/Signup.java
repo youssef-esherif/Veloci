@@ -21,7 +21,7 @@ public class Signup extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/signup.html").forward(request, response);
+        request.getRequestDispatcher("/views/signup.html").forward(request, response);
     }
 
     @Override
@@ -40,11 +40,11 @@ public class Signup extends HttpServlet {
         String error = userService.signup(dto);
 
         if (error == null) {
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect(request.getContextPath() + "/views/login.html");
         	
         } else {
             request.setAttribute("error", error);
-            request.getRequestDispatcher("/WEB-INF/views/signup.html").forward(request, response);
+            request.getRequestDispatcher("/views/signup.html").forward(request, response);
         }
     }
 }

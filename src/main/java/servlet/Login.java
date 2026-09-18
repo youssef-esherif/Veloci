@@ -23,7 +23,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/login.html").forward(request, response);
+        request.getRequestDispatcher("/views/login.html").forward(request, response);
     }
 
     @Override
@@ -51,14 +51,14 @@ public class Login extends HttpServlet {
             
             
             if (RoleEnum.ADMIN.equals(user.getRole())) {
-                response.sendRedirect(request.getContextPath() + "/admin_panel");
+                response.sendRedirect(request.getContextPath() + "/views/admin_panel");
             } else {
-                response.sendRedirect(request.getContextPath() + "/home");
+                response.sendRedirect(request.getContextPath() + "/views/home.html");
             }
 
         } else {
             request.setAttribute("error", result.getError());
-            request.getRequestDispatcher("/WEB-INF/views/login.html").forward(request, response);
+            request.getRequestDispatcher("/views/login.html").forward(request, response);
         }
     }
 }
