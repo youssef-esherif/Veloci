@@ -65,7 +65,7 @@ public class UserDaoImpl implements UserDao {
                         rs.getString("username"),
                         rs.getString("password"),
                         rs.getString("name"),
-                        rs.getString("email"), // null for admins, that's fine
+                        rs.getString("email"),
                         RoleEnum.valueOf(rs.getString("role"))
                     );
                     return Optional.of(user);
